@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internship Board — Catalog</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="#results" class="skip-link">Skip to results</a>
+
+<p class="eyebrow">Catalog No. 07 — Student Placement Drawer</p>
+<h1>Internship Board</h1>
+<p class="tagline">Search the drawer, pull a card, apply before the ink dries.</p>
+
+<main id="main-content">
+
+  <h2>Search and filter internships</h2>
+
+  <div class="search-field">
+    <label for="search-input">Search by title or skill</label>
+    <input type="text" id="search-input" name="search" autocomplete="off">
+    <button type="button" id="clear-search" aria-label="Clear search">×</button>
+  </div>
+  <p id="search-hint" class="hint">Matches internship titles and listed skills.</p>
+
+  <fieldset class="filter-group">
+    <legend>Domain</legend>
+    <div class="pill-group" role="group" aria-label="Domain filters">
+      <button type="button" class="filter-pill" data-domain="all" aria-pressed="true">All</button>
+      <button type="button" class="filter-pill" data-domain="Cyber Security" aria-pressed="false">Cyber Security</button>
+      <button type="button" class="filter-pill" data-domain="Data Analytics" aria-pressed="false">Data Analytics</button>
+      <button type="button" class="filter-pill" data-domain="Full Stack Development" aria-pressed="false">Full Stack Development</button>
+      <button type="button" class="filter-pill" data-domain="UI/UX" aria-pressed="false">UI/UX</button>
+    </div>
+  </fieldset>
+
+  <fieldset class="filter-group">
+    <legend>Work mode</legend>
+    <div class="pill-group" role="group" aria-label="Work mode filters">
+      <button type="button" class="filter-pill" data-mode="all" aria-pressed="true">All</button>
+      <button type="button" class="filter-pill" data-mode="Hybrid" aria-pressed="false">Hybrid</button>
+      <button type="button" class="filter-pill" data-mode="On-site" aria-pressed="false">On-site</button>
+      <button type="button" class="filter-pill" data-mode="Remote" aria-pressed="false">Remote</button>
+    </div>
+  </fieldset>
+
+  <section aria-labelledby="results-heading" id="results">
+    <!-- populated by script.js -->
+  </section>
+
+  <section aria-labelledby="results-heading">
+    <h2 id="results-heading">Results</h2>
+
+    <div id="loading-state" class="state-panel" hidden>
+      <p class="state-title">Opening the drawer…</p>
+      <p>Fetching internship cards.</p>
+    </div>
+
+    <div id="empty-state" class="state-panel" hidden>
+      <p class="state-title">No cards match this search.</p>
+      <p>Try a different keyword, or clear a filter to widen the drawer.</p>
+      <button type="button" id="clear-all-btn" class="ghost-btn">Clear search &amp; filters</button>
+    </div>
+
+    <div id="error-state" class="state-panel state-panel--error" hidden>
+      <p class="state-title">Miscatalogued.</p>
+      <p>The drawer didn't open. This is usually temporary.</p>
+      <button type="button" id="retry-btn" class="ghost-btn">Retry</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="board-footer">
+  <p>All listings are fictional, built for a front-end practice exercise.</p>
+</footer>
+
+<dialog id="detail-dialog" aria-labelledby="dialog-title">
+  <form method="dialog" class="dialog-close-form">
+    <button type="submit" class="dialog-close" aria-label="Close details">&times;</button>
+  </form>
+  <div id="dialog-body">
+    <!-- injected by script.js -->
+  </div>
+</dialog>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
